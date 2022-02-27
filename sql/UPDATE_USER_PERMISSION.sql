@@ -1,0 +1,1 @@
+UPDATE users SET permission=? WHERE id=?;

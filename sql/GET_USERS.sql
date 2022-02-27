@@ -1,0 +1,1 @@
+SELECT id, name, permission FROM users;

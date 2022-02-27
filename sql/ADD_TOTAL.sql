@@ -1,0 +1,1 @@
+INSERT INTO totals (of, value) VALUES (?, ?);

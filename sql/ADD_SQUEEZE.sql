@@ -1,0 +1,1 @@
+INSERT INTO squeezes (juice, used_apples) VALUES (?, ?);

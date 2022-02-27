@@ -1,0 +1,1 @@
+INSERT INTO investments (user, given_apples) VALUES (?, ?);

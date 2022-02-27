@@ -1,0 +1,1 @@
+UPDATE tokens SET permission=? AND token=? WHERE user=?;

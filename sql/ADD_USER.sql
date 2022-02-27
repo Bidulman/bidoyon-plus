@@ -1,0 +1,1 @@
+INSERT INTO users (name, permission, password) VALUES (?, ?, ?);

@@ -1,0 +1,1 @@
+SELECT id, juice, used_apples FROM squeezes WHERE id=?;

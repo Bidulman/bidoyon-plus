@@ -1,0 +1,14 @@
+application:
+  host: "localhost"
+  port: 8080
+database:
+  file_path: "database.db"
+  scripts_folder_path: "sql/"
+logger:
+  format: "%(levelname)s: %(message)s"
+  file: "logs.txt"
+permissions:
+  SUPER: 0
+  ADMIN: 1
+  MANAGER: 2
+  USER: 3

@@ -1,0 +1,1 @@
+SELECT user, permission, token FROM tokens;

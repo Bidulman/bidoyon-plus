@@ -1,0 +1,1 @@
+SELECT user, given_apples FROM investments;

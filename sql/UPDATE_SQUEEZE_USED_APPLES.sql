@@ -1,0 +1,1 @@
+UPDATE squeezes SET used_apples=? WHERE id=?;

@@ -1,0 +1,1 @@
+SELECT of, value FROM totals WHERE of=?;

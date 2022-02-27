@@ -1,0 +1,1 @@
+UPDATE totals SET value=? WHERE of=?;
