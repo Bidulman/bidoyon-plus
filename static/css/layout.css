@@ -1,0 +1,63 @@
+html {
+    font-family: 'Comic Sans MS', sans-serif;
+}
+
+body {
+    background-color: #d4fff7;
+    display: flex;
+    flex-direction: column;
+}
+
+#page {
+    background-color: #ffd23f;
+    margin: 0;
+    padding: 0 15px 15px;
+}
+
+header {
+    display: flex;
+    margin-top: 10px;
+}
+
+#header-title {
+    margin: 0;
+}
+
+#header-image {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+
+#content {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#messages {
+    margin-top: 15px;
+}
+
+.success-message {
+    background-color: #49ec08;
+}
+
+.info-message {
+    background-color: #08ecec;
+}
+
+.error-message {
+    background-color: #ec0808;
+}
+
+.success-message, .info-message, .error-message {
+    margin-top: 10px;
+    padding: 5px;
+    border-width: 1px;
+    border-style: ridge;
+}
+
+a {
+    color: #0853ec;
+    text-decoration: None;
+}

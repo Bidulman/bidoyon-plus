@@ -1,6 +1,9 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+
 from utilities import utilities
 
+from routers.app.app import AppRouter
 from routers.api.api import APIRouter
 from routers.cdn import CDNRouter
 
@@ -8,9 +11,11 @@ import logging
 from uvicorn import run
 
 app = FastAPI()
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
-utils = utilities.Utilities('config.yml')
+utils = utilities.Utilities('config.yml', 'permissions.yml', 'messages.yml')
 
+app.include_router(AppRouter(utils).router)
 app.include_router(APIRouter(utils).router)
 app.include_router(CDNRouter(utils).router)
 

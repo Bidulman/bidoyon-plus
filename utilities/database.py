@@ -13,7 +13,7 @@ class Database:
     def __init__(self, utils, load=True):
         self.utils = utils
         self.path = utils.config.get('database.file_path')
-        self.scripts_path = utils.config.get('database.scripts_folder_path')
+        self.scripts_path = utils.config.get('database.scripts_folder')
         self.connexion = None
 
         self.scripts = {}
@@ -103,7 +103,7 @@ class Database:
                 cursor.execute(self.scripts['UPDATE_TOKEN'], (permission, token, user))
         return token
 
-    # Useful methods for totals
+    # Useful methods for Totals
 
     def get_total(self, of):
         with self as cursor:

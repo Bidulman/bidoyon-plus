@@ -20,23 +20,23 @@ class InvestmentsAPIRouter(Router):
 
         @self.router.get('/all', response_model=ReturnInvestments)
         async def get_investments(token: Token):
-            self.check_token(token.token, 'MANAGER', 'Get Investments')
+            self.check_token(token.token, self.permissions.get('api.get_investments'), 'Get Investments')
 
-            investments = self.utils.database.get_investments()
+            investments = self.database.get_investments()
             return JSONResponse(content=investments, status_code=200)
 
         @self.router.get('/', response_model=ReturnInvestment)
         async def get_investment(token: Token, investment: GetInvestment):
-            self.check_token(token.token, 'MANAGER', 'Get Investment')
+            self.check_token(token.token, self.permissions.get('api.get_investment'), 'Get Investment')
 
-            investment = self.utils.database.get_investment(investment.user)
+            investment = self.database.get_investment(investment.user)
             if investment:
                 return JSONResponse(content=investment, status_code=200)
             raise HTTPException(status_code=404, detail="Investment does not exist")
 
         @self.router.post('/', response_model=None)
         async def update_investment(token: Token, investment: UpdateInvestment):
-            self.check_token(token.token, 'MANAGER', 'Update Investment')
+            self.check_token(token.token, self.permissions.get('api.update_investment'), 'Update Investment')
 
-            investment = self.utils.database.update_investment(investment.user, investment.given_apples)
+            investment = self.database.update_investment(investment.user, investment.given_apples)
             return JSONResponse(content=investment, status_code=200)

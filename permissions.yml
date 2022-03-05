@@ -1,0 +1,26 @@
+api:
+  # Squeezes
+  get_squeezes: MANAGER
+  get_squeeze: MANAGER
+  add_squeeze: MANAGER
+  update_squeeze: MANAGER
+  remove_squeeze: MANAGER
+  # Tokens
+  get_tokens: SUPER
+  get_token: SUPER
+  generate_token: SUPER
+  # Totals
+  get_total: MANAGER
+  update_total: MANAGER
+  # Users
+  get_users: ADMIN
+  get_user: ADMIN
+  add_user: ADMIN
+  update_user: ADMIN
+  remove_user: ADMIN
+  # Configs
+  reload_config: SUPER
+  # Investments
+  get_investments: MANAGER
+  get_investment: MANAGER
+  update_investment: MANAGER

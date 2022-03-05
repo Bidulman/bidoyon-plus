@@ -6,6 +6,7 @@ from routers.api.squeezes import SqueezesAPIRouter
 from routers.api.investments import InvestmentsAPIRouter
 from routers.api.tokens import TokensAPIRouter
 from routers.api.totals import TotalsAPIRouter
+from routers.api.configs import ConfigsAPIRouter
 
 
 class APIRouter(Router):
@@ -17,6 +18,7 @@ class APIRouter(Router):
         self.router.include_router(InvestmentsAPIRouter(utils).router)
         self.router.include_router(TokensAPIRouter(utils).router)
         self.router.include_router(TotalsAPIRouter(utils).router)
+        self.router.include_router(ConfigsAPIRouter(utils).router)
 
     def methods(self):
 

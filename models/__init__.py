@@ -38,3 +38,6 @@ from .investment import (
     GetInvestment,
     UpdateInvestment
 )
+from .config import (
+    Config
+)

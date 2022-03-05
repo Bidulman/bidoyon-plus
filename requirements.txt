@@ -1,0 +1,7 @@
+# Useful
+requests
+PyYAML
+# FastAPI
+fastapi
+uvicorn
+python-multipart

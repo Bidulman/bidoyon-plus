@@ -1,9 +1,11 @@
 application:
+  name: "Bidoyon+"
   host: "localhost"
   port: 8080
+  external_address: "http://localhost:8080"
 database:
   file_path: "database.db"
-  scripts_folder_path: "sql/"
+  scripts_folder: "sql/"
 logger:
   format: "%(levelname)s: %(message)s"
   file: "logs.txt"
@@ -12,3 +14,13 @@ permissions:
   ADMIN: 1
   MANAGER: 2
   USER: 3
+contact:
+  name: BidulaxStudio
+  github: "https://github.com/BidulaxStudio"
+  mail:
+    address: "contact@bidulaxstudio.eu"
+    subject: "A propos de Bidoyon+"
+    body: "Je vous contacte depuis l'application Bidoyon+ !"
+messages: [
+  "Hey ! Vous utilisez Bidoyon+ par BidulaxStudio..."
+]

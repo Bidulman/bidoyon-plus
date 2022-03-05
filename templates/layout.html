@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ page_name }} - {{ app_name }}</title>
+        <link href="{{ url_for('static', path='/css/layout.css') }}" rel="stylesheet">
+        <link rel="shortcut icon" href="{{ url_for('static', path='favicon.ico') }}">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block head %}
+        {% endblock %}
+    </head>
+
+    <body>
+
+        <div id="page">
+
+            <div id="messages">
+                {% for content, type in messages %}
+                    <div class="{{ type }}">
+                        {{ content }}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <header>
+                <img id="header-image" src="{{ url_for('static', path='favicon.ico') }}" alt="Logo">
+                <h1 id="header-title">{{ page_name }}</h1>
+            </header>
+
+            <p>ℹ️ {{ page_info }}</p>
+
+            <div id="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+
+            <footer>
+                -
+                {% for name, link in links %}
+                    <a href="{{ link }}">{{ name }}</a> -
+                {% endfor %}
+                <a href="/?token={{ token }}">Accueil</a> -
+                {% if not token %}
+                    <a href="/login">Connexion</a> -
+                {% else %}
+                    <a href="/">Déconnexion</a> -
+                {% endif %}
+                <a href="/contact/?token={{ token }}">Contact</a> -
+            </footer>
+
+        </div>
+
+    </body>
+
+</html>

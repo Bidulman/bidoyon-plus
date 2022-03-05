@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% set page_name = "Accueil" %}
+{% if not page_info %}
+    {% set page_info = "Bienvenue sur l'application ! Vous êtes actuellement sur la page d'accueil..." %}
+{% endif %}
+{% block content %}
+    Pas grand-chose à dire, finalement...
+{% endblock %}
