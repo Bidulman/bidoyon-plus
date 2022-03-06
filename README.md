@@ -24,6 +24,7 @@ Pour fonctionner, le projet se base sur un langage et des libraires.
 - SQL est celui qui sert pour toutes les requêtes avec la base de données
 - YML est utile pour les fichiers de configuration
 - HTML est utilisé pour la structuration des pages (accompagné de CSS)
+- JavaScript est très peu utilisé mais a le mérite d'être là...
 - FastAPI est la librairie Web utilisée pour le projet
 - Sqlite3 s'occupe de stocker les données du projet
 - Requests permet aux services de communiquer entre eux

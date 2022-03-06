@@ -15,7 +15,7 @@ class ConfigsAPIRouter(Router):
 
         @self.router.post('/')
         async def reload_config(token: Token, config: Config):
-            self.check_token(token.token, self.permissions.get('api.reload_config'), 'Reload Config')
+            self.check_api_token(token.token, self.permissions.get('api.reload_config'), 'Reload Config')
 
             if config.name == "config":
                 self.config.load()

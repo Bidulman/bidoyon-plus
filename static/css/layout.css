@@ -61,3 +61,7 @@ a {
     color: #0853ec;
     text-decoration: None;
 }
+
+h3 {
+    margin-bottom: 0;
+}

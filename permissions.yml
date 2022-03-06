@@ -24,3 +24,5 @@ api:
   get_investments: MANAGER
   get_investment: MANAGER
   update_investment: MANAGER
+app:
+  admin_page: ADMIN

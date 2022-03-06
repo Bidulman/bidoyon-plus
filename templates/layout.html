@@ -6,7 +6,7 @@
         <title>{{ page_name }} - {{ app_name }}</title>
         <link href="{{ url_for('static', path='/css/layout.css') }}" rel="stylesheet">
         <link rel="shortcut icon" href="{{ url_for('static', path='favicon.ico') }}">
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% block head %}
         {% endblock %}
     </head>
@@ -28,7 +28,7 @@
                 <h1 id="header-title">{{ page_name }}</h1>
             </header>
 
-            <p>ℹ️ {{ page_info }}</p>
+            <p>ℹ️ <span id="page-info">{{ page_info }}</span></p>
 
             <div id="content">
                 {% block content %}

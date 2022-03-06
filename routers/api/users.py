@@ -22,14 +22,14 @@ class UsersAPIRouter(Router):
 
         @self.router.get('/all', response_model=ReturnUsers)
         async def get_users(token: Token):
-            self.check_token(token.token, self.permissions.get('api.get_users'), 'Get Users')
+            self.check_api_token(token.token, self.permissions.get('api.get_users'), 'Get Users')
 
             users = self.database.get_users()
             return JSONResponse(content=users, status_code=200)
 
         @self.router.get('/', response_model=ReturnUser)
         async def get_user(token: Token, user: GetUserByID):
-            self.check_token(token.token, self.permissions.get('api.get_user'), 'Get User')
+            self.check_api_token(token.token, self.permissions.get('api.get_user'), 'Get User')
 
             user = self.database.get_user_by_id(user.id)
             if user:
@@ -38,7 +38,7 @@ class UsersAPIRouter(Router):
 
         @self.router.put('/', response_model=ReturnUser)
         async def add_user(token: Token, user: AddUser):
-            self.check_token(token.token, self.permissions.get('api.add_user'), 'Add User')
+            self.check_api_token(token.token, self.permissions.get('api.add_user'), 'Add User')
 
             if self.database.add_user(user.name, user.permission, user.password):
                 user = self.database.get_user_by_name(user.name)
@@ -47,7 +47,7 @@ class UsersAPIRouter(Router):
 
         @self.router.post('/', response_model=ReturnUser)
         async def update_user(token: Token, user: UpdateUser):
-            self.check_token(token.token, self.permissions.get('api.update_user'), 'Update User')
+            self.check_api_token(token.token, self.permissions.get('api.update_user'), 'Update User')
 
             if not self.database.get_user_by_id(user.id):
                 raise HTTPException(status_code=404, detail="User does not exist")
@@ -64,7 +64,7 @@ class UsersAPIRouter(Router):
 
         @self.router.delete('/', response_model=ReturnUser)
         async def remove_user(token: Token, user: RemoveUser):
-            self.check_token(token.token, self.permissions.get('api.remove_user'), 'Remove User')
+            self.check_api_token(token.token, self.permissions.get('api.remove_user'), 'Remove User')
 
             if self.database.remove_user(user.id):
                 return JSONResponse(content={'id': user.id}, status_code=200)

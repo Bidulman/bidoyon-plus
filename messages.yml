@@ -1,0 +1,13 @@
+always: [
+  "Vous utilisez Bidoyon+ par BidulaxStudio !"
+]
+app:
+  admin:
+    user_created: "Vous avez créé l'utilisateur {name} (ID:{id}) avec la permission {permission}."
+    user_already_exists: "L'utilisateur {name} n'a pas pu être créé car il existe déjà..."
+    user_removed: "L'utilisateur {id} a été retiré des utilisateurs."
+    user_not_found: "L'utilisateur {id} n'existe pas."
+    user_updated_name: "Le nom d'utilisateur de {id} a été modifié en {name}."
+    user_updated_password: "Le mot de passe de {id} a été modifié en {password}."
+    user_updated_permission: "La permission de {id} a été modifiée en {permission}."
+    config_reloaded: "La configuration {name} a été rechargée."

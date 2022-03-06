@@ -2,7 +2,7 @@
 {% set page_name = "Contact" %}
 {% set page_info = "Pour nous contacter, vous pouvez utiliser les moyens mis à disposition ci-dessous." %}
 {% block content %}
-    <h3>Ouvrir une demande</h3>
+    <h2>Ouvrir une demande</h2>
     <form action="/request" method="post">
         <label for="request_email">Adresse E-Mail : </label><br>
         <input type="email" name="email" id="request_email" required><br>
@@ -12,8 +12,8 @@
         <textarea name="body" id="request_body" rows="10" cols="50" required></textarea><br>
         <input type="submit" value="Envoyer">
     </form>
-    <h3>Envoyer un E-Mail</h3>
+    <h2>Envoyer un E-Mail</h2>
     Vous pouvez <a href="mailto:{{ contact_name }}<{{ contact_address }}>?subject={{ contact_subject }}&body={{ contact_body }}">cliquer ici</a> pour nous envoyer un E-Mail !
-    <h3>Visiter notre GitHub</h3>
+    <h2>Visiter notre GitHub</h2>
     Vous pouvez aussi vous rendre <a target="_blank" href="{{ contact_github }}">ici</a> pour visiter notre GitHub...
 {% endblock %}

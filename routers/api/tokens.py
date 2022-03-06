@@ -20,14 +20,14 @@ class TokensAPIRouter(Router):
 
         @self.router.get('/all', response_model=ReturnTokens)
         async def get_tokens(token: Token):
-            self.check_token(token.token, self.permissions.get('api.get_tokens'), 'Get Tokens')
+            self.check_api_token(token.token, self.permissions.get('api.get_tokens'), 'Get Tokens')
 
             tokens = self.database.get_tokens()
             return JSONResponse(content=tokens, status_code=200)
 
         @self.router.get('/', response_model=ReturnToken)
         async def get_token(token: Token, gettoken: GetTokenByUser):
-            self.check_token(token.token, self.permissions.get('api.get_token'), 'Get Token')
+            self.check_api_token(token.token, self.permissions.get('api.get_token'), 'Get Token')
 
             token = self.database.get_token_by_user(gettoken.user)
             if token:
@@ -36,7 +36,7 @@ class TokensAPIRouter(Router):
 
         @self.router.post('/', response_model=None)
         async def generate_token(token: Token, generatetoken: GenerateToken):
-            self.check_token(token.token, self.permissions.get('api.generate_token'), 'Generate Token')
+            self.check_api_token(token.token, self.permissions.get('api.generate_token'), 'Generate Token')
 
             if generatetoken.permission:
                 token = self.database.generate_token(generatetoken.user, generatetoken.permission)

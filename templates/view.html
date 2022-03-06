@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% set page_name = "Vue globale" %}
+{% set page_info = "Vous visualisez ici les données actuelles de l'événement." %}
+{% block head %}
+    <script>
+        window.onload = () => {
+            let seconds = 15
+            let pageInfo = document.getElementById('page-info')
+            pageInfo.innerHTML = "{{ page_info }} (Rechargement dans " + seconds + " secondes)"
+            setInterval(() => {
+                console.log("row")
+                if (seconds > 0) {
+                    seconds -= 1
+                    pageInfo.innerHTML = "{{ page_info }} (Rechargement dans " + seconds + " secondes)"
+                } else {
+                    location.reload()
+                }
+            }, 1000)
+        }
+    </script>
+{% endblock %}
+{% block content %}
+    <h2>Données actuelles</h2>
+    Rien de bien génial dans ce menu actuellement...
+{% endblock %}

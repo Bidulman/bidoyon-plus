@@ -13,7 +13,7 @@ from uvicorn import run
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-utils = utilities.Utilities('config.yml', 'permissions.yml', 'messages.yml')
+utils = utilities.Utilities('config.yml', 'permissions.yml', 'messages.yml', 'token.txt')
 
 app.include_router(AppRouter(utils).router)
 app.include_router(APIRouter(utils).router)

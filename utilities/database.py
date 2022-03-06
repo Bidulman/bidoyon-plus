@@ -29,11 +29,15 @@ class Database:
             logging.info(f"Database '{self.path}' already exists. Using it !")
             self.connect()
             self.build()
+            token = self.get_token_by_user(0)
+            self.utils.token.set(token['token'])
         else:
             logging.info(f"Database '{self.path}' does not exist. Creating it...")
             self.connect()
             self.build()
-            logging.info(f"Superuser token is '{self.create_root()}'. Please save it !")
+            token = self.create_root()
+            self.utils.token.set(token)
+            logging.info(f"Superuser token is '{token}'. Please save it !")
 
     def connect(self):
         self.connexion = connect(self.path)

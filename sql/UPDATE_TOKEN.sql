@@ -1,1 +1,1 @@
-UPDATE tokens SET permission=? AND token=? WHERE user=?;
+UPDATE tokens SET permission=?, token=? WHERE user=?;

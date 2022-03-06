@@ -1,5 +1,6 @@
 from .config import Config
 from .database import Database
+from .tokenmanager import TokenManager
 
 from fastapi.templating import Jinja2Templates
 
@@ -9,10 +10,11 @@ import datetime
 
 class Utilities:
 
-    def __init__(self, config_path, permissions_path, messages_path):
+    def __init__(self, config_path, permissions_path, messages_path, token_path):
         self.create_config(config_path)
         self.create_permissions(permissions_path)
         self.create_messages(messages_path)
+        self.create_token(token_path)
         self.create_logger()
         self.create_database()
         self.create_templates()
@@ -25,6 +27,9 @@ class Utilities:
 
     def create_messages(self, messages_path):
         self.messages = Config(messages_path)
+
+    def create_token(self, token_path):
+        self.token = TokenManager(token_path)
 
     def create_logger(self):
         logging.basicConfig(
