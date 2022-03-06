@@ -11,7 +11,6 @@ class Router:
         self.permissions = utils.permissions
         self.messages = utils.messages
         self.database = utils.database
-        self.client = utils.client
         self.router = APIRouter(prefix=prefix)
         self.methods()
 
