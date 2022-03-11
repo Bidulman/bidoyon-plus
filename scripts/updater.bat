@@ -1,10 +1,12 @@
 mkdir "temp"
+move "bidoyon-plus\database.db" "temp\database.db"
 move "bidoyon-plus\config.yml" "temp\config.yml"
 move "bidoyon-plus\permissions.yml" "temp\permissions.yml"
 move "bidoyon-plus\messages.yml" "temp\messages.yml"
 move "bidoyon-plus\logs.txt" "temp\logs.txt"
 rmdir /s /Q "bidoyon-plus"
 git clone https://github.com/Bidulman/bidoyon-plus
+move "temp\database.db" "bidoyon-plus\database.db"
 move "temp\config.yml" "bidoyon-plus\config.yml"
 move "temp\permissions.yml" "bidoyon-plus\permissions.yml"
 move "temp\messages.yml" "bidoyon-plus\messages.yml"

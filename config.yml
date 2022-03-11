@@ -15,6 +15,13 @@ permissions:
   ADMIN: 1
   MANAGER: 2
   USER: 3
+links:
+  1:
+    - name: Admin
+      link: "/admin?token={token}"
+  2:
+    - name: Manager
+      link: "/manager?token={token}"
 contact:
   name: BidulaxStudio
   github: "https://github.com/BidulaxStudio"

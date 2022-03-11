@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% set page_name = "Panel Manager" %}
+{% set page_info = "Vous êtes actuellement sur le panel Manager de l'application." %}
+{% block content %}
+    <h2>Gérer les pressées</h2>
+    <h3>Ajuster une pressée</h3>
+    <form action="/manager/updatesqueeze?token={{ token }}" method="post">
+        <label for="id">Identifiant :</label><br>
+        <input type="number" name="id" id="id" value="{{ current_pressing }}" required><br>
+        <label for="used_apple">Ajout de pommes :</label><br>
+        <input type="number" name="used_apple" id="used_apple" value="0" required><br>
+        <label for="produced_juice">Ajout de jus :</label><br>
+        <input type="number" name="produced_juice" id="produced_juice" value="0" required><br>
+        <input type="submit" value="Valider">
+    </form>
+    <h3>Ajouter une pressée</h3>
+    <form action="/manager/addsqueeze?token={{ token }}" method="post">
+        <label for="id">Identifiant :</label><br>
+        <input type="number" name="id" id="id" value="{{ next_pressing }}" required><br>
+        <input type="submit" value="Valider">
+    </form>
+    <h3>Supprimer une pressée</h3>
+    <form action="/manager/removesqueeze?token={{ token }}" method="post">
+        <label for="id">Identifiant :</label><br>
+        <input type="number" name="id" id="id" value="{{ current_pressing }}" required><br>
+    </form>
+{% endblock %}

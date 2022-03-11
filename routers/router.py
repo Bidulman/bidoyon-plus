@@ -51,8 +51,9 @@ class Router:
         elif code == 500:
             return self.redirect_response('/', [("Vous avez été redigé vers la page d'accueil car une erreur de permissions internes s'est produite. Veuillez contacter votre administrateur.", 'error-message')], {'token': token})
 
-    def template_response(self, template, request, data):
+    def template_response(self, template, request, data, token=""):
         # Useful data
+        data['token'] = token
         data['request'] = request
         data['app_name'] = self.utils.config.get('application.name')
         data['address'] = self.utils.config.get('application.external_address')
@@ -63,6 +64,17 @@ class Router:
         data['contact_address'] = self.utils.config.get('contact.mail.address')
         data['contact_subject'] = self.utils.config.get('contact.mail.subject')
         data['contact_body'] = self.utils.config.get('contact.mail.body')
+        # Permissions
+        token = self.utils.database.get_token_by_token(token)
+        links = []
+        if token:
+            user_permission = self.utils.config.get(f"permissions.{token['permission']}")
+            for permission in self.utils.config.get('links'):
+                if user_permission <= int(permission):
+                    for link in self.utils.config.get(f'links.{permission}'):
+                        links.append((link['name'], link['link'].replace('{token}', token['token'])))
+        data['links'] = links
+
         return self.utils.templates.TemplateResponse(template, data)
 
     def redirect_response(self, url="", messages=None, params=None):

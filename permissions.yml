@@ -26,3 +26,4 @@ api:
   update_investment: MANAGER
 app:
   admin_page: ADMIN
+  manager_page: MANAGER

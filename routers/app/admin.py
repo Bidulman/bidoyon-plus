@@ -10,14 +10,14 @@ class AppAdminRouter(Router):
 
     def methods(self):
 
-        @self.router.get('')
+        @self.router.get('/')
         async def admin(request: Request):
             token = request.query_params.get('token')
             check = self.check_app_token(token, self.permissions.get('app.admin_page'), 'Access Admin Page')
             if isinstance(check, RedirectResponse):
                 return check
 
-            return self.template_response('admin.html', request, {'token': token})
+            return self.template_response('admin.html', request, {}, token)
 
         @self.router.post('/adduser')
         async def process_adduser(request: Request, username: str = Form(...), password: str = Form(...), permission: str = Form(...)):

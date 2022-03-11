@@ -37,16 +37,16 @@
 
             <footer>
                 -
+                <a href="/?token={{ token }}">Accueil</a> -
+                <a href="/contact/?token={{ token }}">Contact</a> -
                 {% for name, link in links %}
                     <a href="{{ link }}">{{ name }}</a> -
                 {% endfor %}
-                <a href="/?token={{ token }}">Accueil</a> -
                 {% if not token %}
                     <a href="/login">Connexion</a> -
                 {% else %}
                     <a href="/">Déconnexion</a> -
                 {% endif %}
-                <a href="/contact/?token={{ token }}">Contact</a> -
             </footer>
 
         </div>
