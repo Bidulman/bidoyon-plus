@@ -12,6 +12,9 @@ class Console:
         address = input("Address : ")
         token = input("Token : ")
         self.client = Client(address, token)
+        self.load_commands()
+
+    def load_commands(self):
         self.commands = [
             # Users
             Command('getusers', ['gus'], 0, lambda: self.client.get_users()),
