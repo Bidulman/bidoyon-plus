@@ -117,6 +117,13 @@ class Database:
                 return dict(zip(['of', 'value'], total))
         return None
 
+    def get_total_value(self, of):
+        total = self.get_total(of)
+        if total:
+            return total['value']
+        else:
+            return 0
+
     def update_total(self, of, value, addition=False):
         with self as cursor:
             total = self.get_total(of)
@@ -243,6 +250,12 @@ class Database:
                 self.update_total('used_apples', new_used_apples-squeeze['used_apples'], True)
             return True
         return False
+
+    def get_current_squeeze_id(self):
+        with self as cursor:
+            cursor.execute(self.scripts['GET_CURRENT_SQUEEZE'])
+            current_squeeze = cursor.fetchone()[0]
+        return current_squeeze
 
     # Useful methods for Investments
 

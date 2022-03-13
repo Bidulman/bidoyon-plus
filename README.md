@@ -110,4 +110,6 @@ Superbe ! Vous avez maintenant des scripts prêts à l'utilisation.
 Si vous avez bien mis en place les scripts pendant l'installation, la mise à jour sans perte de données sera un jeu d'enfant.
 Il vous suffit d'activer le script `updater.bat` ou `updater.sh` (en fonction de votre système d'exploitation) préalablement installé. Automatiquement, les fichiers de données seront sauvegardés et replacés dans l'application, et les scripts seront mis à jour.
 
+Si l'option est activée dans la configuration, l'application peut vérifier elle-même si elle est à jour et vous prévenir.
+
 ---

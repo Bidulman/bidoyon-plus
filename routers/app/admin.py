@@ -20,7 +20,7 @@ class AppAdminRouter(Router):
             return self.template_response('admin.html', request, {}, token)
 
         @self.router.post('/adduser')
-        async def process_adduser(request: Request, username: str = Form(...), password: str = Form(...), permission: str = Form(...)):
+        async def process_add_user(request: Request, username: str = Form(...), password: str = Form(...), permission: str = Form(...)):
             token = request.query_params.get('token')
             check = self.check_app_token(token, self.permissions.get('app.admin_page'), 'Add User (from Admin Page)')
             if isinstance(check, RedirectResponse):
@@ -33,7 +33,7 @@ class AppAdminRouter(Router):
                 return self.redirect_response('/admin', [(self.messages.get('app.admin.user_already_exists').format(name=username), 'error-message')], {'token': token})
 
         @self.router.post('/removeuser')
-        async def process_removeuser(request: Request, id: str = Form(...)):
+        async def process_remove_user(request: Request, id: str = Form(...)):
             token = request.query_params.get('token')
             check = self.check_app_token(token, self.permissions.get('app.admin_page'), 'Remove User (from Admin Page)')
             if isinstance(check, RedirectResponse):
@@ -55,7 +55,7 @@ class AppAdminRouter(Router):
                 return self.redirect_response('/admin', [(self.messages.get('app.admin.user_not_found').format(id=id), 'error-message')], {'token': token})
 
         @self.router.post('/updateuser')
-        async def process_updateuser(request: Request, id: str = Form(...), username: str = Form(...), password: str = Form(...), permission: str = Form(...)):
+        async def process_update_user(request: Request, id: str = Form(...), username: str = Form(...), password: str = Form(...), permission: str = Form(...)):
             token = request.query_params.get('token')
             check = self.check_app_token(token, self.permissions.get('app.admin_page'), 'Update User (from Admin Page)')
             if isinstance(check, RedirectResponse):
@@ -97,7 +97,7 @@ class AppAdminRouter(Router):
             return self.redirect_response('/admin', messages, {'token': token})
 
         @self.router.post('/reloadconfig')
-        async def process_reloadconfig(request: Request, name: str = Form(...)):
+        async def process_reload_config(request: Request, name: str = Form(...)):
             token = request.query_params.get('token')
             check = self.check_app_token(token, self.permissions.get('app.admin_page'), 'Reload Config (from Admin Page)')
             if isinstance(check, RedirectResponse):

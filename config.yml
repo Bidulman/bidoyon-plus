@@ -5,6 +5,7 @@ application:
   local_address: "http://localhost:8080"
   external_address: "http://localhost:8080"
 version:
+  check: true
   file: "version.txt"
   url: "https://raw.github.com/Bidulman/bidoyon-plus/main/version.txt"
 database:

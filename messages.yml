@@ -1,5 +1,5 @@
 always: [
-  "Vous utilisez Bidoyon+ par BidulaxStudio !"
+  # "Vous utilisez Bidoyon+ par BidulaxStudio !"
 ]
 app:
   admin:
@@ -11,3 +11,10 @@ app:
     user_updated_password: "Le mot de passe de {id} a été modifié en {password}."
     user_updated_permission: "La permission de {id} a été modifiée en {permission}."
     config_reloaded: "La configuration {name} a été rechargée."
+  manager:
+    squeeze_created: "Vous avez démarré une nouvelle pressée."
+    squeeze_removed: "Vous avez retiré la pressée N°{id}."
+    squeeze_not_found: "La pressée {id} n'existe pas !"
+    squeeze_used_apples_updated: "La pressée a maintenant {used_apples} Kg de pommes supplémentaires."
+    squeeze_produced_juice_updated: "La pressée a maintenant {produced_juice} L de jus supplémentaires."
+    too_many_used_apples: "Vous ne pouvez pas utiliser plus de pommes que le nombre investi ! (Actuellement {given_apples} Kg)"

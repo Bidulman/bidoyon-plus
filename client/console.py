@@ -45,8 +45,8 @@ class Console:
             # Configs
             Command('reloadconfig', ['rlcfg'], 1, lambda a: self.client.reload_config(a)),
             # Console
-            Command('!changeaddress', ['!cha'], 1, lambda a: self.client.set_address(a)),
-            Command('!changetoken', ['!cht'], 1, lambda a: self.client.set_token(a))
+            Command('changeaddress', ['@'], 1, lambda a: self.client.set_address(a)),
+            Command('changetoken', ['#'], 1, lambda a: self.client.set_token(a))
         ]
 
     def start(self):

@@ -35,7 +35,7 @@ class Router:
             logging.warning(f"User {token['user']} tried to : {action} (require permission {needed_permission}), but he has permission {token['permission']}.")
             return 403
 
-        logging.info(f"User {token['user']} successfully executed the action {action} (require {needed_permission}, he has {token['permission']}).")
+        logging.info(f"User {token['user']} executed the action {action} (require {needed_permission}, he has {token['permission']}).")
 
     def check_api_token(self, token, needed_permission, action):
         code = self.check_token(token, needed_permission, action)

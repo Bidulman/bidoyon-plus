@@ -50,6 +50,7 @@ def check_updates():
 
 
 if __name__ == "__main__":
-    check_updates()
+    if utils.config.get('version.check'):
+        check_updates()
     logging.info(f"Enabling application with host '{host}' and port {port}.")
     run(app=app, host=host, port=port)
