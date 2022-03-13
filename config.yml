@@ -4,6 +4,9 @@ application:
   port: 8080
   local_address: "http://localhost:8080"
   external_address: "http://localhost:8080"
+version:
+  file: "version.txt"
+  url: "https://raw.github.com/Bidulman/bidoyon-plus/main/version.txt"
 database:
   file_path: "database.db"
   scripts_folder: "sql/"
